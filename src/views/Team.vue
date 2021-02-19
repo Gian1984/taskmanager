@@ -6,17 +6,17 @@
       <v-row wrap>
           <v-flex xs12 sm6 lg3 v-for="person in team" :key="person.name">
                 <v-card
-                    class="pa-3 ma-3"
+                    class="ma-2"
                     max-width="344"
                     outlined     
                 >
                     <v-list-item three-line>
                     <v-list-item-content>
                         <div class="overline mb-4">
-                        OVERLINE
+                        {{person.role}}
                         </div>
                         <v-list-item-title class="headline mb-1">
-                        Headline 5
+                        <p class="caption font-weight-bold">{{person.name}}</p>
                         </v-list-item-title>
                         <v-list-item-subtitle>Greyhound divisely hello coldly fonwderfully</v-list-item-subtitle>
                     </v-list-item-content>
@@ -56,7 +56,7 @@ export default {
         { name: 'Gianluca Tiengo', role: 'Web developer' },
         { name: 'Giacomo Rosso', role: 'Graphic designer' },
         { name: 'Marco Di Maio', role: 'Web developer' },
-        { name: 'Paolo Properzi', role: 'Social media maverick' },
+        { name: 'Paolo Properzi', role: 'Social media' },
         { name: 'Alessandro Pozzato', role: 'Sales guru'}
       ]
     }
