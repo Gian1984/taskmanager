@@ -14,7 +14,7 @@
                 <span>Manager</span>
             </v-toolbar-title>
             <v-spacer></v-spacer>
-            <v-btn depressed small flat dark color="teal">
+            <v-btn depressed small text dark color="teal">
                 <span>Sign out</span>
                 <v-icon>mdi-exit-to-app</v-icon>
             </v-btn>
@@ -29,7 +29,7 @@
             >
             <v-list-item>
                 <v-list-item-avatar>
-                <v-img src="https://randomuser.me/api/portraits/men/78.jpg"></v-img>
+                <v-img src="/img/sdengo.png"></v-img>
                 </v-list-item-avatar>
 
                 <v-list-item-content>

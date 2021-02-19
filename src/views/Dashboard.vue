@@ -8,7 +8,7 @@
     
         <v-tooltip bottom small>
           <template v-slot:activator="{ on }">  
-            <v-btn small flat color="grey lighten-4" v-on="on" @click="sortBy('title')">
+            <v-btn small color="grey lighten-4" v-on="on" @click="sortBy('title')">
               <v-icon left small>mdi-folder</v-icon>
               <div class="span caption text-lowercase">By project name</div>
             </v-btn>
@@ -18,7 +18,7 @@
 
          <v-tooltip bottom small>
           <template v-slot:activator="{ on }">  
-            <v-btn small flat color="grey lighten-4 ml-3" v-on="on" @click="sortBy('person')">
+            <v-btn small color="grey lighten-4 ml-3" v-on="on" @click="sortBy('person')">
               <v-icon left small>mdi-account</v-icon>
               <div class="span caption text-lowercase">By person</div>
             </v-btn>
@@ -28,7 +28,7 @@
 
         <v-tooltip bottom small>
           <template v-slot:activator="{ on }">  
-            <v-btn small flat color="grey lighten-4 ml-3" v-on="on" @click="sortBy('status')">
+            <v-btn small color="grey lighten-4 ml-3" v-on="on" @click="sortBy('status')">
               <v-icon left small>mdi-clock</v-icon>
               <div class="span caption text-lowercase">By status</div>
             </v-btn>

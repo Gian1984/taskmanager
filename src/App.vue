@@ -1,9 +1,9 @@
 <template>
   <v-app>
     <Navbar/>
-    <v-content>
+    <v-main>
       <router-view class="mx-5 mb-5 my-3"></router-view>
-    </v-content>
+    </v-main>
   </v-app>
 </template>
 
