@@ -38,7 +38,7 @@
 
       </v-row>
 
-      <v-card flat color="grey lighten-4" v-for="project in projects" :key="project.title">
+      <v-card flat color="teal lighten-5"  v-for="project in projects" :key="project.title">
         <v-row class="mb-2" no-gutters :class="`pa-3 project ${project.status}`">
           <!-- dynamic class based on project status -->
 
@@ -54,7 +54,7 @@
 
           <v-col>
             <div class="caption grey--text">Due by</div>
-            <div>{{project.due}}</div>
+            <div>{{project.date}}</div>
           </v-col>
 
           <v-col>
@@ -73,18 +73,14 @@
 </template>
 
 <script>
-// @ is an alias to /src
+import db from '@/fb'
+
 
 
 export default {
   data() {
     return {
-      projects: [
-        { title: 'Design a new website', person: 'Gianluca Tiengo', due: '1st Jan 2019', status: 'ongoing', content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt consequuntur eos eligendi illum minima adipisci deleniti, dicta mollitia enim explicabo fugiat quidem ducimus praesentium voluptates porro molestias non sequi animi!'},
-        { title: 'Code up the homepage', person: 'Giacomo Rosso', due: '10th Jan 2019', status: 'complete', content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt consequuntur eos eligendi illum minima adipisci deleniti, dicta mollitia enim explicabo fugiat quidem ducimus praesentium voluptates porro molestias non sequi animi!'},
-        { title: 'Design video thumbnails', person: 'Marco Di Maio', due: '20th Dec 2018', status: 'complete', content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt consequuntur eos eligendi illum minima adipisci deleniti, dicta mollitia enim explicabo fugiat quidem ducimus praesentium voluptates porro molestias non sequi animi!'},
-        { title: 'Create a community forum', person: 'Paolo Properzi', due: '20th Oct 2018', status: 'overdue', content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt consequuntur eos eligendi illum minima adipisci deleniti, dicta mollitia enim explicabo fugiat quidem ducimus praesentium voluptates porro molestias non sequi animi!'},
-      ]
+      projects: []
     }
   },
   methods:{
@@ -92,7 +88,22 @@ export default {
       this.projects.sort((a,b)=> a[prop] < b[prop] ? -1 : 1)
     }
   },
-  
+
+  created(){
+    db.collection('projects').onSnapshot( res => {
+     
+      const changes = res.docChanges()
+      changes.forEach(change => {
+        if(change.type === 'added'){
+          this.projects.push({
+            ...change.doc.data(),
+            id: change.doc.id
+          })
+
+        }
+      });
+    })
+  }
 }
 </script>
 
