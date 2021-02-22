@@ -10,6 +10,11 @@ npm install
 npm run serve
 ```
 
+### DB powered by firestore
+```
+
+```
+
 ### Compiles and minifies for production
 ```
 npm run build
