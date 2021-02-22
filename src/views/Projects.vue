@@ -3,7 +3,7 @@
     <h1 class="title grey--text">Projects</h1>
     <v-container fluid class="my-5">
       
-      <v-row justify="center">
+      <v-row justify="center" class="px-5"> 
         <v-expansion-panels accordion>
           <v-expansion-panel
             v-for="project in myProjects" :key="project.title">
